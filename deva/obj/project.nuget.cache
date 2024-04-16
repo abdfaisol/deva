@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "Ub7kOQYwXCbyA0TDDNa0XIlpuEFwvkoQ2kUefH/B+58Xz6yWDmDvlGP7KhfY4Ci0DG3edNJaRXqEftCN198Vnw==",
+  "success": true,
+  "projectFilePath": "D:\\Project\\Dotnet\\Deva\\deva\\deva\\deva.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\abdfa\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.20.0-preview.1\\microsoft.visualstudio.azure.containers.tools.targets.1.20.0-preview.1.nupkg.sha512",
+    "C:\\Users\\abdfa\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\abdfa\\.nuget\\packages\\restsharp\\110.2.0\\restsharp.110.2.0.nupkg.sha512",
+    "C:\\Users\\abdfa\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
+    "C:\\Users\\abdfa\\.nuget\\packages\\system.text.json\\7.0.2\\system.text.json.7.0.2.nupkg.sha512",
+    "C:\\Users\\abdfa\\.nuget\\packages\\urlmatcher\\2.0.1\\urlmatcher.2.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
