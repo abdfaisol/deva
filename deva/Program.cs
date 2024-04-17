@@ -277,22 +277,22 @@ namespace Deva
             server.Start();
             //Console.WriteLine("Done!");
 
-            Console.WriteLine("Press Enter to stop the server or '!' to restart the server...");
+            // Console.WriteLine("Press Enter to stop the server or '!' to restart the server...");
 
             //// Perform text input
             for (; ; )
             {
-                string line = Console.ReadLine();
-                if (string.IsNullOrEmpty(line))
-                    break;
+                //     // string line = Console.ReadLine();
+                //     // if (string.IsNullOrEmpty(line))
+                //     //     break;
 
-                // Restart the server
-                if (line == "!")
-                {
-                    Console.Write("Server restarting...");
-                    server.Restart();
-                    Console.WriteLine("Done!");
-                }
+                //     // Restart the server
+                //     // if (line == "!")
+                //     // {
+                //     //     Console.Write("Server restarting...");
+                //     //     server.Restart();
+                //     //     Console.WriteLine("Done!");
+                //     // }
             }
 
             ////// Stop the server

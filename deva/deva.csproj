@@ -19,6 +19,9 @@
   <ItemGroup>
     <Folder Include="public\img\" />
     <Folder Include="public\doc\" />
+      <Content Include="prasi\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>
