@@ -6,11 +6,14 @@ namespace deva.libs.page
 {
     public static class Global
     {
+        public static string ConnectionDb { get; set; }
         public static string site_id { get; set; }
         public static string ConfigRaw { get; set; }
         public static Dictionary<string, dynamic> Config { get; set; }
         public static Dictionary<string, WebConfig> web { get; set; }
         public static List<RouterModel> Route { get; set; }
+        public static Dictionary<string, dynamic> SchemaDb { get; set; }
+        public static string prasi_id { get; set; }
 
     }
     public class WebConfig
@@ -19,8 +22,22 @@ namespace deva.libs.page
         public Dictionary<string, dynamic> cache { get; set; }
 
     }
-    public class PrasiFile
+    public class Prasi : GeneratePage
     {
+        public string GenSchemaFile()
+        {
+            // Ubah path file.gz sesuai dengan lokasi dan nama file Anda
+            //string filePath = "file.gz";
+            string result = "";
+            // Membuka file .gz
+            string path = Path.Combine(Directory.GetCurrentDirectory(), "app", "schema.json");
+            try { result = System.IO.File.ReadAllText(path); } catch (Exception e) { }
+
+            Dictionary<string, dynamic> jsonObject = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(result);
+            Global.SchemaDb = jsonObject;
+            return result;
+        }
+
         public string GetPrasiFile(string path)
         {
             // Ubah path file.gz sesuai dengan lokasi dan nama file Anda

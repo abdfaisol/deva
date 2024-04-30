@@ -1,9 +1,9 @@
 ﻿using deva.libs.prasi;
 using deva.libs.router;
+using Microsoft.AspNetCore.WebUtilities;
+using Newtonsoft.Json;
 using System.Collections.Specialized;
 using HttpRequest = Deva.HttpRequest;
-using Microsoft.AspNetCore.WebUtilities;
-using System.IO;
 
 namespace deva.app.page
 {
@@ -38,20 +38,28 @@ namespace deva.app.page
                             result.Add(url);
                             string filePath = Path.Combine(Directory.GetCurrentDirectory(), urlPath);
                             Console.WriteLine($"{filePath}");
+                            Console.WriteLine("CEK POINT 0");
                             try
                             {
+                                Console.WriteLine("CEK POINT");
                                 string directoryPath = Path.GetDirectoryName(filePath);
+                                Console.WriteLine("SUDAH?");
                                 if (!Directory.Exists(directoryPath))
                                 {
+                                    Console.WriteLine("SUDAH?");
                                     // Buat direktori jika tidak ada
                                     Directory.CreateDirectory(directoryPath);
                                 }
+                                Console.WriteLine("SUDAH?");
                                 using (var fileStream = File.Create(filePath))
                                 {
+                                    Console.WriteLine("SUDAH?");
                                     await bagian.Body.CopyToAsync(fileStream);
                                 }
+                                Console.WriteLine("SUDAH?");
                             }
-                            catch (Exception ex) { 
+                            catch (Exception ex)
+                            {
                                 Console.WriteLine(ex.Message);
                             }
                         }
@@ -61,20 +69,12 @@ namespace deva.app.page
                     }
                 }
             }
-            if(result.Count > 0)
-            {
-                string resUrl = string.Join(",", result);
-                return Reply($"[{resUrl}]");
-            }
-            else
-            {
-                return Reply("");
-            }
-            
+            return Reply(JsonConvert.SerializeObject(result));
+
         }
         static async Task SaveFile(HttpRequest req)
         {
-            
+
         }
         static string getPathUpload(string filename)
         {
@@ -84,7 +84,7 @@ namespace deva.app.page
             int day = now.Day;
             long millisecond = DateTimeOffset.Now.ToUnixTimeMilliseconds();
             string fileName = $"{millisecond}-{filename}";
-            string filePath = Path.Combine("upload", $"{year}-{month}",$"{day}", fileName);
+            string filePath = Path.Combine("upload", $"{year}-{month}", $"{day}", fileName);
             return filePath;
         }
         static string GetBoundary(HttpRequest req)
